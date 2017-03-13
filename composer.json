@@ -1,6 +1,7 @@
 {
     "name": "trigves/arm",
     "description": "A class that creates, updates and deletes tables and rows in the database automatically.",
+	"type": "library",
     "license": "MIT",
 	"keywords": ["laravel"],
     "authors": [
@@ -9,12 +10,13 @@
             "email": "trigve.hagen@gmail.com"
         }
     ],
+	"minimum-stability": "stable",
+    "require": {},
 	"autoload": {
 		"psr-4": {
 			"App\\": "app/",
-			"Trigves\\Arm\\": "packages/trigves/arm/src"
+			"Trigves\\Arm\\": "/src"
 		}
 	},
-	"minimum-stability": "stable",
-    "require": {}
+	
 }
