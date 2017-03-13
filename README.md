@@ -15,13 +15,6 @@ YOU REALLY HAVE TO WATCH WHEN YOU ARE CREATING YOUR TABLES AND FIELDS
 Due to adding new features to the class last week I was running into new errors. When debbugging I realized the new error was not a new error at all but this. If you had named two databases the same they would both be erased when dropping a table. I added new logic for reporting the error. I also adding logic to report having two rows with the same name and errors and messages for everything else. PLease be carefull anyways. I take no responsibility for lost data! Use at your risk. If I have no new problems to report in the next month of developing with it than it is done. Happy Coding!!  
 
 INSTALLATION  
-1) Put class where you can inherit it through extends or include it.  
-2) Fill in database connection variables,  
-	private $_db_host;  
-	private $_db_name;  
-	private $_db_user;  
-	private $_db_pass;  
-3) Call $this->ArmCheckTables();
 
 
 3/10/2017 - updates  
