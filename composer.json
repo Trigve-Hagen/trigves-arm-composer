@@ -15,5 +15,6 @@
 			"Trigves\\Arm\\": "packages/trigves/arm/src"
 		}
 	},
+	"minimum-stability": "stable",
     "require": {}
 }
