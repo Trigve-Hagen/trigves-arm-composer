@@ -15,7 +15,7 @@ YOU REALLY HAVE TO WATCH WHEN YOU ARE CREATING YOUR TABLES AND FIELDS
 Due to adding new features to the class last week I was running into new errors. When debbugging I realized the new error was not a new error at all but this. If you had named two databases the same they would both be erased when dropping a table. I added new logic for reporting the error. I also adding logic to report having two rows with the same name and errors and messages for everything else. PLease be carefull anyways. I take no responsibility for lost data! Use at your risk. If I have no new problems to report in the next month of developing with it than it is done. Happy Coding!!  
 
 INSTALLATION  
-1) goto root of application and type - composer require trigves/arm 
+1) goto root of application and type - composer require trigves/arm  
 2) Place 'Trigves\Arm\ArmServiceProvider::class,' in the providers array in config/app  
 3) Create the table in phpmyadmin and fill in your .env variables.  
 
