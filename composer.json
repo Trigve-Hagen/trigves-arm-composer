@@ -2,6 +2,7 @@
     "name": "trigves/arm",
     "description": "A class that creates, updates and deletes tables and rows in the database automatically.",
     "license": "MIT",
+	"keywords": ["laravel"],
     "authors": [
         {
             "name": "Trigve-Hagen",
