@@ -17,6 +17,5 @@
 			"App\\": "app/",
 			"Trigves\\Arm\\": "/src"
 		}
-	},
-	
+	}
 }
