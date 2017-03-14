@@ -6,38 +6,14 @@ use Illuminate\Support\ServiceProvider;
 
 class Arm {
 	private $_db_host, $_db_name, $_db_user, $_db_pass;
-	
+	private $_tablesArray;
 	public function __construct() {
 		$this->_db_host = env('DB_HOST');
 		$this->_db_name = env('DB_DATABASE');
 		$this->_db_user = env('DB_USERNAME');
 		$this->_db_pass = env('DB_PASSWORD');
+		$this->_tablesArray = config('arm.tables');
 	}
-	
-	/*
-	* I take no responsibility for lost data! Use at your risk.
-	* tablename and id INT NOT NULL AUTO_INCREMENT are manditory unless you want to adjust it
-	* You can name the sections separated by the underscore anything - 'id'=>'blogid_45g234y5g5y' or 'id'=>'userid_rewquy3o45ouy'
-	* The next two fields after tablename and id are optional. They are
-	* create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP - 'created_at'=>'createdat_c3po007r2d2'
-	* and updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP - 'updated_at'=>'updatedat_c3po007r2d2'
-	* ids don't have INT or characters on the end and niether do created_at or updated_at. They are created individually.
-	* If you want a TEXT assign it TEXT with no characters - metta_c3po007r2d2_TEXT
-	* Others must have a number of characters assigned like this rate_c3po007r2d2_VARCHAR_255 - 4 section divided by underscores
-	* You can update multiple rows in a table and make several databases at a time and combine the two
-	* You can add rows anywhere you want after updated_at. Will work on improvements to that soon. For now if you are unsure
-	* build your database with create_at and updated_at in place. create_at keeps first insert. updated_at updates when updated.
-	* added support for adding multiple rows in a table that are next to each other.
-	* added support for droping unneeded tables - just erase them from the array.
-	* For a ton of changes(erase two tables, add three rows to each table while erasing four rows in each table, create another table)
-	* you may have to refresh twice, but it beats going back and forth.
-	*/
-	private $_tablesArray = array(
-		'users' => array('tablename'=>'users_c3po007r2d2', 'id'=>'userid_c3po007r2d2', 'created_at'=>'createdat_c3po007r2d2', 'name'=>'name_c3po007r2d2_VARCHAR_255', 'phone'=>'phone_c3po007r2d2_VARCHAR_255', 'username'=>'username_c3po007r2d2_VARCHAR_255', 'email'=>'email_c3po007r2d2_VARCHAR_255', 'username'=>'username_c3po007r2d2_VARCHAR_255', 'password'=>'password_c3po007r2d2_VARCHAR_255'),
-		'userdata' => array('tablename'=>'userdata_c3po007r2d2', 'id'=>'userid_c3po007r2d2', 'created_at'=>'createdat_c3po007r2d2', 'name'=>'name_c3po007r2d2_VARCHAR_255', 'phone1'=>'phone1_c3po007r2d2_VARCHAR_255', 'username'=>'username_c3po007r2d2_VARCHAR_255', 'email'=>'email_c3po007r2d2_VARCHAR_255', 'username'=>'username_c3po007r2d2_VARCHAR_255', 'password'=>'password_c3po007r2d2_VARCHAR_255'),
-		'posts' => array('tablename'=>'posts_posts07rsecret2d2', 'id'=>'postid_posts07rsecret2d2', 'created_at'=>'created_posts07rsecret2d2', 'updated_at'=>'updated_posts07rsecret2d2', 'userid'=>'userid_related2Cusers2Cid_INT_255', 'posttitle'=>'title_posts07rsecret2d2_VARCHAR_255', 'postbody'=>'post_posts07rsecret2d2_VARCHAR_255')/* ,
-		'comments' => array('tablename'=>'comments_posts07rsecret2d2', 'id'=>'commentid_posts07rsecret2d2', 'created_at'=>'created_posts07rsecret2d2', 'updated_at'=>'updated_posts07rsecret2d2', 'userid'=>'userid_related2Cusers2Cid_INT_255', 'postid'=>'postid_related2Cusers2Cid_INT_255', 'comment'=>'comment_posts07rsecret2d2_VARCHAR_255') */
-	);
 	
 	private function _Connect() {
 		return mysqli_connect($this->_db_host, $this->_db_user, $this->_db_pass, $this->_db_name);

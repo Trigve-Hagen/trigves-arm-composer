@@ -16,6 +16,10 @@ class ArmServiceProvider extends ServiceProvider
     public function boot()
     {
 		include __DIR__.'/routes.php';
+		
+		$this->publishes([
+			__DIR__.'/Config/arm.php' => config_path('arm.php'),
+		], 'config');
     }
 
     /**
@@ -25,6 +29,9 @@ class ArmServiceProvider extends ServiceProvider
      */
     public function register()
     {
+		// Config
+		$this->mergeConfigFrom( __DIR__.'/Config/arm.php', 'arm');
+		
         $this->app->singleton('Arm::class', function() {
 			return Arm();
 		});
